@@ -1,0 +1,25 @@
+<h1>Bucador<small>Marvel y DC</small></h1>
+<hr />
+
+<div class="row" *ngIf="heroes.length == 0">
+  <div class="col-md-12">
+    <div class="alert alert-info">
+      No existen resultados con el termino {{ termino }}
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 m-3">
+  <div class="card animated" *ngFor="let item of heroes; let i = index">
+    <img src="{{ item.img }}" class="card-img-top img-fluid" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ item.nombre | uppercase }}</h5>
+      <p class="card-text">
+        {{ item.bio }}
+      </p>
+      <p class="card-text">
+        <small class="text-muted">{{ item.aparicion | date: "y" }}</small>
+      </p>
+    </div>
+  </div>
+</div>
